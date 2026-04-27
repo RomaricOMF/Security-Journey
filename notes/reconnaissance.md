@@ -30,4 +30,21 @@ Result : The port is running Anydesk service
 - Public IP  : 129.0.80.198
 -  Port 7070 status from internet : filtered
 - Reason : The internet provider is blocking the traffic on this port
-- Risque réel : oui/non, pourquoi ? No since the vulnerable port is not accessible from the internet.
+- Real risk : yes/no, why ? No since the vulnerable port is not accessible from the internet.
+
+## nmap -sV -O — OS and Service detection
+
+### Differences between basic scan vs -sV scan
+A basic scan allow to find open ports and services running on it. a -sV scan reveals the version of these services and the other information such as the if the devise is using a cipher to encrypt messages. 
+
+### What does the ? means
+It means that the result is not precise, that further verifications are required. 
+
+### Why -O is imprecise on the localhost
+This command is used to find the OS running on the devise. In our case, this has found Linux, but the version is vague (a range). This is because 
+on the localhost, nmap use a loopback interface which is not a true network interface. Nmap does not have enough signal to be precise.  
+
+### Implications for the deceptive system
+A deceptive system must avoid the ? by well configuring the devise for a good lying process. 
+Such a deceptive framework has to run a SSL protocol or not depending on the service running.
+Manipulate the TTL and the TCP to mimic the targeted OS. 
